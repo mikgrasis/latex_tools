@@ -1,0 +1,128 @@
+
+\documentclass[paper=a4, fontsize=10pt, abstract=true]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage[left=2.3cm, right=2.5cm, top=2.2cm, bottom=2.0cm, a4paper]{geometry}
+\addtolength{\footskip}{-0.5cm}
+
+% useful packages
+\usepackage[ruled,linesnumbered]{algorithm2e} % for algorithm environment
+\usepackage{algorithmic} % for algorithm formatting
+\usepackage{amsmath} % for many math functions, e.g., what exactly=?
+\usepackage{amsfonts} % for many fonts, e.g., \mathbb
+\usepackage{amssymb} % for certain math symbols, e.g., \circledast
+\usepackage{amsthm} % defines environment for proofs and theorems, also \qed
+\usepackage{bm} % for bold math symbols
+\usepackage{booktabs} % for nice tables, e.g., \toprule, \midrule, etc...
+\usepackage{caption} % improved handling of captions
+\usepackage{cite} % improved handling of numeric citations
+%\usepackage{comment} % include comment sections in text that can be shown or not
+\usepackage{coseoul} % flexible document structure, e.g., \levelstay, \levelup, \addtocounter{currentlevel}{-1}, \setcounter{currentlevel}{5}
+\usepackage[babel,german=quotes]{csquotes} % context sensitive quotation
+\usepackage{enumitem} % customize lists
+\usepackage{forloop} % for loops in LaTeX
+\usepackage{framed} % put frames around text
+\usepackage{graphicx}
+\usepackage{here} % obsolete, use package 'float' instead?
+\usepackage[hidelinks]{hyperref}
+%\usepackage{mathtools}
+\usepackage{mcode} % for MATLAB code listings
+\usepackage{nicefrac} % nicefrac command
+\usepackage[square,numbers]{natbib} % work with both author–year and numerical citations
+\usepackage{bibentry} % for in-text-full-citations
+\usepackage{pgfplots} % for using matlab2tikz (also loads package tikz in the background)
+\usepackage[headsepline,plainheadsepline]{scrlayer-scrpage} % for page layout
+\usepackage{setspace} % adjust line spacing? e.g., \onehalfspacing
+%\usepackage{showframe} % activate to check page layout
+\usepackage{stmaryrd} % contains \llbracket,\rrbracket
+\usepackage{subcaption} % to make captions figures with more than one figure
+\usepackage[normalem]{ulem}
+\usepackage{xcolor} % extend LaTeX's color facilities
+\usepackage{rotating}
+% basic document settings...
+%\setcounter{tocdepth}{3} %chapter{0},section{1},subsection{2},subsubsection{3}
+\setcounter{secnumdepth}{0} %how deep to do section numbering
+
+% page layout
+\pagestyle{scrheadings}
+%\automark[chapter]{chapter}
+%\renewcommand{\chapterpagestyle}{scrheadings}
+\rohead{\small\today}
+
+\setlength{\parindent}{0mm}
+\onehalfspacing
+
+\newlength\figureheight
+\newlength\figurewidth
+\setlength{\figureheight}{10cm} % default height of matlab2tikz figures
+\setlength{\figurewidth}{15cm} % default width of matlab2tikz figures
+\usetikzlibrary{plotmarks}
+
+\pdfimageresolution=150
+
+% put user-defined macros into an extra .tex-document: helps to keep the main file more clean.
+\input{macros.tex}
+
+% don't do anything for the \blbf markup from the slides...
+\newcommand{\blbf}[1]{#1}
+
+% grey markup
+\newcommand{\greytxt}[1]{\textcolor{black!50}{#1}}
+
+% some colors
+%\definecolor{black}{rgb}{0.00,0.00,0.00}
+%\definecolor{green}{rgb}{0,0.455,0.478}
+%\definecolor{blue}{rgb}{0,0.2,0.349}
+\definecolor{crlblue}{rgb}{0,0,1}
+\definecolor{myGreen}{rgb}{0.137,0.75,0.071}
+
+% colored boxes for equations
+\makeatletter
+\newcommand{\boxedRed}[1]{\textcolor{red}{\setlength{\fboxrule}{1pt}\fbox{\normalcolor\m@th$\displaystyle#1$}}}
+\newcommand{\boxedGreen}[1]{\textcolor{myGreen}{\setlength{\fboxrule}{1pt}\fbox{\normalcolor\m@th$\displaystyle#1$}}}
+\newcommand{\boxedYellow}[1]{\textcolor{yellow}{\setlength{\fboxrule}{1pt}\fbox{\normalcolor\m@th$\displaystyle#1$}}}
+\newcommand{\boxedGreenT}[1]{\textcolor{myGreen}{\setlength{\fboxrule}{1pt}\fbox{\normalcolor\m@th$\textstyle#1$}}}
+\newcommand{\boxedBlack}[1]{\textcolor{black}{\setlength{\fboxrule}{1pt}\fbox{\normalcolor\m@th$\textstyle#1$}}}
+\makeatother
+
+% some cool colors to highlight stuff....
+\definecolor{lightBlue}{rgb}{0.5,0.87,1}
+\definecolor{lightGreen}{rgb}{0.75,1,0.75}
+\definecolor{lightRed}{rgb}{1,0.7,0.75}
+\definecolor{lightYellow}{rgb}{1,1,0.5}
+
+% and the corresponding command for highlighting within mathematical expressions...
+\newcommand{\highlight}[2][yellow]{\mathchoice
+    {\colorbox{#1}{$\displaystyle#2$}}
+    {\colorbox{#1}{$\textstyle#2$}}
+    {\colorbox{#1}{$\scriptstyle#2$}}
+    {\colorbox{#1}{$\scriptscriptstyle#2$}}}
+
+% algorithm formatting
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+% fix \left-\right bracket spacing...
+\let\originalleft\left
+\let\originalright\right
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+\renewcommand{\right}{\aftergroup\egroup\originalright}
+
+\graphicspath{{./figures/}}
+
+\nobibliography* % activate to use bibentry command
+\begin{document}
+    
+    \section{Simulation Results}
+    
+    \input{comments}
+    \input{simulation_results}
+    \input{more_comments}    
+    
+    \bibliographystyle{unsrt}
+    %\bibliography{C:/Users/maal9672/Documents/_bib2019_copy}
+    \bibliography{/Volumes/POWER/[Papers]/_bib2019}
+    %\bibliography{bibliography} % put your bibliography here
+    
+\end{document}

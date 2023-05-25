@@ -1,0 +1,440 @@
+% Macro file, Mikus Grasis, 13.6.2021
+
+%=== symbols %=====================================================
+%=====================================================
+% Handling the conflicts of special characters (more specifically their diacritics).
+% Note: this method requires to add authors making use of the definitions made below
+% within your reference managing tool (see examples).
+\let\cedilla\c        %  cedilla ç ->LaTeX \c{c}, e.g., for Fran{\c{c}}ois put Fran{\cedilla{c}}ois
+\let\kringel\r       % ring ->LaTeX \r{a}, e.g., for H{\r{a}}astad put H{\kringel{a}}astad
+\let\brevis\u       % breve ->LaTeX \u{a}, e.g., for Ciochină, or Ciochin\u{a} put Ciochin\brevis{a}
+%\let\trema\"    %  Umlaut (trema) ï ->LaTeX \"{i}, e.g., for Variddhisaï put Variddhisa{\trema{i}}
+\newcommand\tremai{\"{i}}    %  Umlaut (trema) ï ->LaTeX \"{i}, e.g., for Variddhisaï put Variddhisa{\tremai}
+
+%=====================================================
+%=====================================================
+\newcommand\0{\bm{0}}
+\renewcommand\a{\bm{a}}%
+\renewcommand\b{\bm{b}}%
+\renewcommand\c{\bm{c}}%possible conflict: cedilla ç ->LaTeX \c{c}
+\renewcommand\d{\bm{d}}%
+\newcommand\e{\bm{e}}
+\newcommand\f{\bm{f}}
+\newcommand\g{\bm{g}}
+\newcommand\h{\bm{h}}
+%\renewcommand\i{\bm{i}}%possible conflict: trema ï ->LaTeX \''{i}
+\renewcommand\j{\bm{j}}
+\renewcommand\k{\bm{k}}
+\renewcommand\l{\bm{l}}
+\newcommand\n{\bm{n}}
+\newcommand\m{\bm{m}}
+%\renewcommand\o{\bm{o}}%possible conflict: danish o
+\newcommand\p{\bm{p}}
+\newcommand\q{\bm{q}}
+\renewcommand\r{\bm{r}}%possible conflict: Ring ->LaTeX \r{a}
+\newcommand\s{\bm{s}}
+\renewcommand\t{\bm{t}}%
+\renewcommand\u{\bm{u}}%possible conflict: Brevis ->LaTeX: \u{g}
+\renewcommand\v{\bm{v}}%
+\newcommand\w{\bm{w}}
+\newcommand\x{\bm{x}}
+\newcommand\y{\bm{y}}
+\newcommand\z{\bm{z}}
+\newcommand\ones{\boldsymbol{1}}
+\newcommand\alphab{\boldsymbol{\alpha}}
+\newcommand\betab{\boldsymbol{\beta}}
+\newcommand\gammab{\boldsymbol{\gamma}}
+\newcommand\gb{\boldsymbol{\gamma}} % legacy
+\newcommand\deltab{\boldsymbol{\delta}}
+\newcommand\epsilonb{\boldsymbol{\epsilon}}
+\newcommand\etab{\boldsymbol{\eta}}
+\newcommand\thetab{\boldsymbol{\theta}}
+\newcommand\lambdab{\boldsymbol{\lambda}}
+\newcommand\lb{\boldsymbol{\lambda}} % legacy
+\newcommand\mub{\boldsymbol{\mu}}
+\newcommand\nub{\boldsymbol{\nu}}
+\newcommand\phib{\boldsymbol{\phi}}
+\newcommand\psib{\boldsymbol{\psi}}
+\newcommand\varphib{\boldsymbol{\varphi}}
+\newcommand\xib{\boldsymbol{\xi}}
+\newcommand\MU{\bm{\mu}}
+\newcommand\NU{\bm{\nu}}
+\newcommand\A{\bm{A}}
+\newcommand\B{\bm{B}}
+\newcommand\C{\bm{C}}
+\newcommand\D{\bm{D}}
+\newcommand\F{\bm{F}}
+\newcommand\E{\bm{E}}
+\newcommand\G{\bm{G}}
+\renewcommand\H{\bm{H}}%
+\newcommand\I{\bm{I}}%
+\newcommand\J{\bm{J}}
+\newcommand\K{\bm{K}}
+\renewcommand\L{\bm{L}}%
+\newcommand\M{\bm{M}}
+\newcommand\N{\bm{N}}
+\renewcommand\P{\bm{P}}%
+\newcommand\Q{\bm{Q}}
+\newcommand\R{\bm{R}}
+\renewcommand\S{\bm{S}}%
+\newcommand\T{\bm{T}}
+\newcommand\U{\bm{U}}
+\newcommand\V{\bm{V}}
+\newcommand\W{\bm{W}}
+\newcommand\X{\bm{X}}
+\newcommand\Y{\bm{Y}}
+\newcommand\Z{\bm{Z}}
+\newcommand\PI{\bm{\Pi}}
+\newcommand\At{\bm{\mathcal{A}}}
+\newcommand\Bt{\bm{\mathcal{B}}}
+\newcommand\Ct{\bm{\mathcal{C}}}
+\newcommand\Dt{\bm{\mathcal{D}}}
+\newcommand\Et{\bm{\mathcal{E}}}
+\newcommand\It{\bm{\mathcal{I}}}
+\newcommand\Ft{\bm{\mathcal{F}}}
+\newcommand\Gt{\bm{\mathcal{G}}}
+\newcommand\Ht{\bm{\mathcal{H}}}
+\newcommand\Kt{\bm{\mathcal{K}}}
+\newcommand\Lt{\bm{\mathcal{L}}}
+\newcommand\Mt{\bm{\mathcal{M}}}
+\newcommand\Nt{\bm{\mathcal{N}}}
+\newcommand\Ot{\bm{\mathcal{O}}}
+\newcommand\Pt{\bm{\mathcal{P}}}
+\newcommand\Qt{\bm{\mathcal{Q}}}
+\newcommand\Rt{\bm{\mathcal{R}}}
+\newcommand\St{\bm{\mathcal{S}}}
+\newcommand\Tt{\bm{\mathcal{T}}}
+\newcommand\Ut{\bm{\mathcal{U}}}
+\newcommand\Vt{\bm{\mathcal{V}}}
+\newcommand\Wt{\bm{\mathcal{W}}}
+\newcommand\Xt{\bm{\mathcal{X}}}
+\newcommand\Yt{\bm{\mathcal{Y}}}
+\newcommand\Zt{\bm{\mathcal{Z}}}
+\newcommand\DELTA{\bm{\Delta}}
+\newcommand\LAMBDA{\bm{\Lambda}}
+\newcommand\GAMMA{\bm{\Gamma}}
+\newcommand\OMEGA{\bm{\Omega}}
+\newcommand\SIGMA{\bm{\Sigma}}
+\newcommand\THETA{\bm{\Theta}}
+\newcommand\PHI{\bm{\Phi}}
+\newcommand\PSI{\bm{\Psi}}
+\newcommand\XI{\bm{\Xi}}
+\newcommand\UPSILON{\bm{\Upsilon}}
+
+\newcommand\Atbar{\bm{\mathcal{\bar A}}}
+\newcommand\Wtbar{\bm{\mathcal{\bar W}}}
+\newcommand\Xtbar{\bm{\mathcal{\bar X}}}
+\newcommand\Ytbar{\bm{\mathcal{\bar Y}}}
+
+\newcommand\Abar{\bm{\bar{A}}}
+\newcommand\Gbar{\bm{\bar{G}}}
+\newcommand\Kbar{\bm{\bar{K}}}
+\newcommand\Ubar{\bm{\bar{U}}}
+\newcommand\SIGMAbar{\bm{\bar{\Sigma}}}
+\newcommand\UPSILONbar{\bm{\bar{\Upsilon}}}
+\newcommand\Vbar{\bm{\bar{V}}}
+\newcommand\Rbar{\bm{\bar{R}}}
+\newcommand\Xbar{\bm{\bar{X}}}
+
+\newcommand\fbar{\bm{\bar f}}
+\newcommand\gbar{\bm{\bar g}}
+
+\newcommand\Athat{\bm{\mathcal{\hat A}}}
+\newcommand\Bthat{\bm{\mathcal{\hat B}}}
+\newcommand\Lthat{\bm{\mathcal{\hat L}}}
+\newcommand\Fthat{\bm{\mathcal{\hat F}}}
+\newcommand\Gthat{\bm{\mathcal{\hat G}}}
+\newcommand\Nthat{\bm{\mathcal{\hat N}}}
+\newcommand\Sthat{\bm{\mathcal{\hat S}}}
+\newcommand\Wthat{\bm{\mathcal{\hat W}}}
+\newcommand\Xthat{\bm{\mathcal{\hat X}}}
+\newcommand\Ythat{\bm{\mathcal{\hat Y}}}
+\newcommand\Zthat{\bm{\mathcal{\hat Z}}}
+
+\newcommand\Ahat{\bm{\hat{A}}}
+\newcommand\Bhat{\bm{\hat{B}}}
+\newcommand\Chat{\bm{\hat{C}}}
+\newcommand\Fhat{\bm{\hat{F}}}
+\newcommand\Ghat{\bm{\hat{G}}}
+\newcommand\Rhat{\bm{\hat R}}
+\newcommand\Uhat{\bm{\hat U}}
+\newcommand\Shat{\bm{\hat S}}
+\newcommand\SIGMAhat{\bm{\hat \Sigma}}
+\newcommand\Vhat{\bm{\hat V}}
+\newcommand\What{\bm{\hat W}}
+\newcommand\That{\bm{\hat T}}
+\newcommand\Xhat{\bm{\hat X}}
+\newcommand\Zhat{\bm{\hat Z}}
+\newcommand\GAMMAhat{\bm{\hat \Gamma}}
+
+\newcommand\ahat{\bm{\hat a}}
+\newcommand\bhat{\bm{\hat b}}
+\newcommand\chat{\bm{\hat c}}
+\newcommand\fhat{\bm{\hat f}}
+\newcommand\ghat{\bm{\hat g}}
+\newcommand\hhat{\bm{\hat h}}
+\newcommand\phat{\bm{\hat p}}
+\newcommand\uhat{\bm{\hat u}}
+\newcommand\vhat{\bm{\hat v}}
+\newcommand\what{\bm{\hat w}}
+\newcommand\xhat{\bm{\hat x}}
+\newcommand\yhat{\bm{\hat y}}
+\newcommand\zhat{\bm{\hat z}}
+\newcommand\lambdabhat{\boldsymbol{\hat\lambda}}
+\newcommand\gammabhat{\boldsymbol{\hat\gamma}}
+\newcommand\xibhat{\boldsymbol{\hat\xi}}
+
+\newcommand\Rbarhat{\bm{\hat{\bar R}}}
+\newcommand\Ubarhat{\bm{\hat{\bar U}}}
+\newcommand\SIGMAbarhat{\bm{\hat{\bar\Sigma}}}
+\newcommand\Vbarhat{\bm{\hat{\bar V}}}
+\newcommand\Xbarhat{\bm{\hat{\bar X}}}
+
+\newcommand\pbarhat{\bm{\hat{\bar p}}}
+
+\newcommand\Attilde{\bm{\mathcal{\tilde A}}}
+\newcommand\Gttilde{\bm{\mathcal{\tilde G}}}
+\newcommand\Sttilde{\bm{\mathcal{\tilde S}}}
+\newcommand\Vttilde{\bm{\mathcal{\tilde V}}}
+\newcommand\Wttilde{\bm{\mathcal{\tilde W}}}
+\newcommand\Xttilde{\bm{\mathcal{\tilde X}}}
+
+\newcommand\Atilde{\bm{\tilde{A}}}
+\newcommand\Btilde{\bm{\tilde{B}}}
+\newcommand\Ftilde{\bm{\tilde{F}}}
+\newcommand\Gtilde{\bm{\tilde{G}}}
+\newcommand\Ntilde{\bm{\tilde{N}}}
+\newcommand\Ptilde{\bm{\tilde{P}}}
+\newcommand\Rtilde{\bm{\tilde{R}}}
+\newcommand\Stilde{\bm{\tilde{S}}}
+\newcommand\Utilde{\bm{\tilde{U}}}
+\newcommand\Vtilde{\bm{\tilde{V}}}
+\newcommand\Wtilde{\bm{\tilde{W}}}
+\newcommand\Xtilde{\bm{\tilde{X}}}
+\newcommand\Ytilde{\bm{\tilde{Y}}}
+\newcommand\Ztilde{\bm{\tilde{Z}}}
+
+\newcommand\atilde{\bm{\tilde{a}}}
+\newcommand\btilde{\bm{\tilde{b}}}
+\newcommand\ctilde{\bm{\tilde{c}}}
+\newcommand\ftilde{\bm{\tilde{f}}}
+\newcommand\vtilde{\bm{\tilde{v}}}
+\newcommand\xtilde{\bm{\tilde{x}}}
+\newcommand\lambdabtilde{\bm{\tilde{\lambda}}}
+
+\newcommand\Sbreve{\bm{\breve{S}}}
+
+\renewcommand\AA{\mathbb{A}} %possible conflict: \AA for Angström unit
+\newcommand\CC{\mathbb{C}}
+\newcommand\RR{\mathbb{R}}
+\newcommand\NN{\mathbb{N}}
+\newcommand\PP{\mathbb{P}}
+\newcommand\QQ{\mathbb{Q}}
+\newcommand\ZZ{\mathbb{Z}}
+\newcommand\KK{\mathbb{K}}
+\newcommand\EE{\mathbb{E}}
+\newcommand\ind{\mathds{1}}
+
+\renewcommand\Re{\mathrm{Re}}%
+\renewcommand\Im{\mathrm{Im}}%
+
+\newcommand\Tp{^\mathrm{T}}
+\newcommand\Ha{^\mathrm{H}}
+\newcommand\Inv{^{-1}}
+\newcommand\InvT{^{-\mathrm{T}}}
+\newcommand\InvH{^{-\mathrm{H}}}
+\newcommand\Pinv{^+}
+\newcommand\PinvH{^{+\mathrm{H}}}
+\newcommand\PinvT{^{+\mathrm{T}}}
+\newcommand\cpl{^{\mathrm{c}}} % complement
+
+%\newcommand\ee{{\mathrm{e}}} % Euler number
+\newcommand\ee{{e}} % Euler number
+\newcommand\jj{j} % imaginary unit
+%\newcommand\jj{\mathrm{j}} % imaginary unit
+%\renewcommand\jj{\jmath} % imaginary unit
+
+\newcommand\setA{\mathcal{A}}
+\newcommand\setB{\mathcal{B}}
+\newcommand\setC{\mathcal{C}}
+\newcommand\setE{\mathcal{E}}
+\newcommand\setF{\mathcal{F}}
+\newcommand\setG{\mathcal{G}}
+\newcommand\setI{\mathcal{I}}
+\newcommand\setJ{\mathcal{J}}
+\newcommand\setK{\mathcal{K}}
+\newcommand\setL{\mathcal{L}}
+\newcommand\setM{\mathcal{M}}
+\newcommand\setN{\mathcal{N}}
+\newcommand\setO{\mathcal{O}}
+\newcommand\setP{\mathcal{P}}
+\newcommand\setR{\mathcal{R}}
+\newcommand\setS{\mathcal{S}}
+\newcommand\setX{\mathcal{X}}
+\newcommand\setY{\mathcal{Y}}
+\newcommand\setZ{\mathcal{Z}}
+
+\newcommand\sysA{\mathcal{A}}
+\newcommand\sysB{\mathcal{B}}
+\newcommand\sysF{\mathcal{F}}
+\newcommand\sysG{\mathcal{G}}
+\newcommand\sysI{\mathcal{I}}
+\newcommand\sysL{\mathcal{L}}
+\newcommand\sysO{\mathcal{O}}
+\newcommand\sysP{\mathcal{P}}
+\newcommand\sysZ{\mathcal{Z}}
+
+\newcommand\normal{\mathcal{N}}
+\newcommand\cnormal{\mathcal{CN}}
+\newcommand\uiv{\overset{\text{u.i.v.}}{\sim}}
+%\newcommand\iid{\overset{\text{i.i.d.}}{\sim}}
+
+\newcommand\fro{\mathrm{F}}
+\newcommand\high{\mathrm{F}} % by default, we don't distinguish between fro and high
+
+%\newcommand{\bigO}[1]{\mathcal{O}{#1}}
+\newcommand\bigO{\mathcal{O}}
+\newcommand\bigOmega{\Omega}
+\newcommand\bigTheta{\Theta}
+\newcommand{\FFT}{\mathrm{FFT}}
+
+
+%=== horizontal bar (indicate row vector) ============================
+\newcommand*{\horzbar}{\rule[.5ex]{2.5ex}{0.5pt}}
+
+%=== abbreviations ===========================================
+\newcommand\ie{i.e.,~}
+\newcommand\eg{e.g.,~}
+
+
+%=== document revision ===========================================
+\definecolor{JungleGreen}{rgb}{0,0.7,0.4}
+\definecolor{deepPurple}{rgb}{0.5,0.1,0.5}
+\newcommand{\revOne}[1]{\textcolor{JungleGreen}{#1}}
+\newcommand{\revTwo}[1]{\textcolor{deepPurple}{#1}}
+\newcommand{\revComment}[1]{\textcolor{red}{[$\rightarrow$ #1]}}
+\newcommand{\revMikus}[1]{\textcolor{red}{[Mikus: #1]}}
+
+
+%=== binary operators ===========================================
+% CRL
+\newcommand\conv{\mathop{*}}         		% Convolution
+\newcommand\kron{\mathop{\otimes}}         % Kronecker product: A \kron B
+\newcommand\krp{\mathop{\diamond}}        % Khatri-Rao product: A \krp B
+\newcommand\schur{\mathop{\odot}}           % Schur product: A \schur B
+\newcommand\contract[2]{\times_{#1}^{#2}} % Contraction product
+%\newcommand\blockkron{\boxtimes}   % Block-wise Kronecker product: A \blockkron_R B
+\newcommand\blockkron{\scalebox{0.8}{$\,\boxtimes$}} 
+
+
+
+% Kolda, Sidiropoulos
+%\newcommand\krp{\mathop{\odot}}  % Khatri-Rao product: A \krp B
+%\newcommand\schur{\mathop{\circledast}}    % Schur product: A \schur B requires amssymb
+
+\newcommand\ischur{\oslash}  % inverse Schur product: A \ischur B
+\DeclareMathOperator*{\outerp}{\circ}    % Outer product: A \outerp B
+\newcommand\nmode[1]{\times_{#1}}  % n-mode product: A \nmode_n B
+\newcommand\myCdot{\cdot}  % Alternative definition for dot-product (redefine, if necessary)
+\newcommand\tprod{\otimes}  % (deprecated) Tensor product (typically also uses \otimes...)
+\DeclareMathOperator*{\tensorp}{\otimes}  % Tensor product (typically also uses \otimes...)
+
+% Anh-Huy Phan/Cichocki
+\newcommand{\ltimesx}{\mathlarger{\ltimes}}%%
+\newcommand{\rtimesx}{\mathlarger{\rtimes}}%%
+
+% Big Ops
+\DeclareMathOperator*{\bigKron}{\mathrm{\raisebox{0.25ex}{\scalebox{0.8}{$\bigotimes$}}}}
+\DeclareMathOperator*{\bigKrp}{\hspace*{-.11em}\mathrm{\raisebox{0ex}{\scalebox{1.875}{$\diamond$}}}}
+%\DeclareMathOperator*{\bigKrp}{\mathrm{\raisebox{0ex}{\scalebox{1.5}{$\diamond$}}}}
+\DeclareMathOperator*{\bigSchur}{\mathrm{\raisebox{0ex}{\scalebox{1.25}{$\odot$}}}}
+%\DeclareMathOperator*{\bigSchur}{\mathrm{\raisebox{0ex}{\scalebox{1.5}{$\odot$}}}}
+\DeclareMathOperator*{\bigTimes}{\mathrm{\raisebox{0ex}{\scalebox{1.2}{$\times$}}}}
+%\DeclareMathOperator*{\bigTimes[1]}{\mathrm{\raisebox{0ex}{\scalebox{1.2}{$\times_{#1}$}}}}
+\DeclareMathOperator*{\bigKrpTp}{\hspace*{-.11em}\mathrm{\raisebox{0ex}{\scalebox{1.875}{$\diamond$}}}\Tp}
+
+\DeclareMathOperator*{\bigTimesJ}{\mathit{\times_j}}
+\DeclareMathOperator*{\bigTimesEll}{\mathit{\times_\ell}}
+
+%=== some tensor stuff ===========================================
+%%% unfolding
+\newcommand\unf[2]{\left[#1\right]_{(#2)}}%CRL
+%\newcommand\unf[2]{\left[\bm{\mathcal{#1}}\right]_{(#2)}}%CRL, Florian?
+%\newcommand\unf[2]{\bm{#1}_{(#2)}}%kiers2000towards
+
+%%% tensor-times-tensor contraction product
+%\newcommand\ttt[4]{\langle#1,#2\rangle_{\left\{\left[#3\right],\left[#4\right]\right\}}}%bader2004matlab
+%\newcommand\ttt[4]{#1\bullet_{#3}^{#4}#2}%comon2001tensor
+%\newcommand\ttt[4]{#1\times_{#3}^{#4}#2}%cichocki2014era
+\newcommand\ttts[3]{\langle#1,#2\rangle_{\left[#3\right]}}%mine
+\newcommand\ttt[4]{\langle#1,#2\rangle_{\left[#3\right],\left[#4\right]}}%mine
+
+%%% concatenation
+%from Florian's macros.tex:
+%\newcommand{\tconcat}{\mbox{\Huge \textvisiblespace \hspace{-0.2ex}} \;}
+%\newcommand{\catten}[3]{\left[#1 \; \tconcat_{#3} \; #2\right]}                    % \catten{\ten{A}}{\ten{B}}{n}
+%\newcommand{\cattenmult}[4]{\left[#1 \tconcat_{#4} #2 \tconcat_{#4} \ldots \tconcat_{#4} #3\right]}            
+%\cattenmult{\ten{A}_1}{\ten{A}_2}{\ten{A}_d}{n}
+%mine:
+\newcommand\cat[1]{\hspace{0.1ex}{\mbox{\Huge \textvisiblespace \hspace{-0.2ex}} \;}_{#1}\,}
+
+%=== functional operators ======================================
+\renewcommand\min[1]{\underset{#1}{\mathrm{min}}\,}
+\renewcommand\max[1]{\underset{#1}{\mathrm{max}}\,}
+\newcommand\argmin[1]{\underset{#1}{\arg\,\mathrm{min}}\,}
+\newcommand\argmax[1]{\underset{#1}{\arg\,\mathrm{max}}\,}
+\newcommand\limit[1]{\underset{#1}{\mathrm{lim}}}
+\newcommand\Diag{\operatorname{Diag}} %to build diagonal matrix from vector
+\newcommand\diag{\operatorname{diag}} %to denote the main diagonal elements of a matrix
+\newcommand\rank{\operatorname{rank}}
+\renewcommand\vec{\operatorname{vec}}
+\newcommand\trace{\operatorname{tr}}
+\newcommand\sgn{\operatorname{sgn}}
+
+\newcommand{\realof}[1]{\mathrm{Re}\left\{ #1 \right\}}           % real part
+\newcommand{\imagof}[1]{\mathrm{Im}\left\{ #1 \right\}}          % imaginary part
+\newcommand{\vecof}[1]{\mathrm{vec}\left\{ #1 \right\}}           % vec operator
+\newcommand{\unvecof}[2]{\mathop{\mathrm unvec}_{#2}\left\{ #1 \right\}}% unvec operator
+\newcommand{\diagof}[1]{{\mathrm diag}\left( #1 \right)}           % diag operator
+\newcommand{\traceof}[1]{\mathrm{Tr}\left( #1 \right)}             % trace operator
+\newcommand{\detof}[1]{\mathrm{det}\left( #1 \right)}              % trace operator
+\newcommand{\rankof}[1]{\mathrm{rank}\left( #1 \right)}          % rank
+\newcommand{\argof}[1]{\mathrm{arg}\left( #1 \right)}              % arg
+
+%=== some probability stuff ===============================
+\newcommand\prob{\mathbb{P}}
+\newcommand\given{\vert}
+
+%=== signal and noise subspace ===============================
+\newcommand\es{{[\mathrm{s}]}}
+\newcommand\en{{[\mathrm{n}]}}
+\newcommand\rhs{^{\mathrm{rhs}}}
+\newcommand\lhs{^{\mathrm{lhs}}}
+
+
+
+%=== tensor Order, Rank, and Partitions ===============================
+%%\newcommand\tOrder{N}
+%%\newcommand\itDim{n}
+%%\newcommand\tRank{F}
+%%\newcommand\itRank{r}
+%%\newcommand\idx{I}
+%%
+%%\newcommand\itParts{p}
+%%\newcommand\numParts{P}
+%%\newcommand\partSize{K}
+%%
+%%\newcommand\itBlocks{q}
+%%\newcommand\numBlocks{Q}
+%%\newcommand\blockSize{L}
+%%
+%%\newcommand\nrank[1][\itDim]{R_{#1}}
+%
+%%=== stuff related to this document only ===============================
+%\newcommand{\myfrac}{\frac}
+%%\newcommand{\myfrac}{\nicefrac}
+%%\newcommand{\myfrac}[2]{#1/#2}
+%%\newcommand{\myfrac}[2]{\left(#1/#2\right)}
+
+
+
